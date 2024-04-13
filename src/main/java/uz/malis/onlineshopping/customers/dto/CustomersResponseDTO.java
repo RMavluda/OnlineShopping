@@ -22,7 +22,7 @@ public class CustomersResponseDTO {
       private String contact;
 
       @OneToOne
-      @JoinColumn(name = "user_id", referencedColumnName = "id")
-      @Schema(title = "user_id")
+      @JoinColumn(name = "user ID", referencedColumnName = "id")
+      @Schema(title = "user ID")
       private UserEntity userEntity;
 }
