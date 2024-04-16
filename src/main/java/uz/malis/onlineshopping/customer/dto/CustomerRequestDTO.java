@@ -1,16 +1,14 @@
-package uz.malis.onlineshopping.customers.dto;
+package uz.malis.onlineshopping.customer.dto;
 
-import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import uz.malis.onlineshopping.users.UserEntity;
 
 @Getter
 @Setter
-public class CustomersRequestDTO {
+public class CustomerRequestDTO {
 
     @NotBlank
     @Size(max = 50)
@@ -24,7 +22,12 @@ public class CustomersRequestDTO {
     @Size(max = 50)
     private String contact;
 
-    @OneToOne
+    @NotBlank
+    private String username;
+
+    @NotBlank
+    private String password;
+
     @NotNull
-    private UserEntity userEntity;
+    private Long userId;
 }

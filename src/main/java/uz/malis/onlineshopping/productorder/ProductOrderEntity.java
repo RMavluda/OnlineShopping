@@ -10,8 +10,8 @@ import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
 import lombok.Data;
 import org.springframework.data.relational.core.mapping.Table;
-import uz.malis.onlineshopping.orders.OrdersEntity;
-import uz.malis.onlineshopping.products.ProductsEntity;
+import uz.malis.onlineshopping.order.OrdersEntity;
+import uz.malis.onlineshopping.product.ProductsEntity;
 
 @Entity
 @Data

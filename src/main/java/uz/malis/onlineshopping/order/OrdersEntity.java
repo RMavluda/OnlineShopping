@@ -1,4 +1,4 @@
-package uz.malis.onlineshopping.orders;
+package uz.malis.onlineshopping.order;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,8 +11,8 @@ import jakarta.persistence.OneToOne;
 import java.time.LocalDate;
 import lombok.Data;
 import org.springframework.data.relational.core.mapping.Table;
-import uz.malis.onlineshopping.customers.CustomersEntity;
-import uz.malis.onlineshopping.orderdetails.OrderDetailsEntity;
+import uz.malis.onlineshopping.customer.CustomerEntity;
+import uz.malis.onlineshopping.orderdetail.OrderDetailsEntity;
 
 @Data
 @Entity
@@ -24,7 +24,7 @@ public class OrdersEntity {
   private Long id;
 
   @Column(name = "customer_id")
-  private CustomersEntity customerId;
+  private CustomerEntity customerId;
 
   @Column(name = "order_date")
   private LocalDate orderDate;
@@ -41,5 +41,5 @@ public class OrdersEntity {
 
   @ManyToOne
   @JoinColumn(name = "customera_id")
-  private CustomersEntity customersEntity;
+  private CustomerEntity customersEntity;
 }

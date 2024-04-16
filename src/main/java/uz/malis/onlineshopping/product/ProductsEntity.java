@@ -1,4 +1,4 @@
-package uz.malis.onlineshopping.products;
+package uz.malis.onlineshopping.product;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

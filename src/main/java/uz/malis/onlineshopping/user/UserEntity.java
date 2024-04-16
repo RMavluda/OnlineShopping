@@ -1,4 +1,4 @@
-package uz.malis.onlineshopping.users;
+package uz.malis.onlineshopping.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,11 +8,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
-import uz.malis.onlineshopping.customers.CustomersEntity;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import uz.malis.onlineshopping.customer.CustomerEntity;
 
-@Data
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 @Table(name="users")
 public class UserEntity {
 
@@ -23,10 +27,13 @@ public class UserEntity {
   @Column(name = "name")
   private String name;
 
+  @Column(name = "username")
+  private String username;
+
   @Column(name = "password")
   private String password;
 
   @OneToOne
   @JoinColumn(name = "customers_id")
-  private CustomersEntity customersEntity;
+  private CustomerEntity customersEntity;
 }

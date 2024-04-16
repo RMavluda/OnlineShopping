@@ -1,4 +1,4 @@
-package uz.malis.onlineshopping.customers;
+package uz.malis.onlineshopping.customer;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,17 +8,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
-import uz.malis.onlineshopping.users.UserEntity;
+import uz.malis.onlineshopping.user.UserEntity;
 
-@Data
+@Getter
+@Setter
 @Entity
 @ToString
 @RequiredArgsConstructor
 @Table(name="customers")
-public class CustomersEntity {
+public class CustomerEntity {
 
       @Id
       @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +34,6 @@ public class CustomersEntity {
 
       @Column(name = "contact")
       private String contact;
-
-      @Column(name = "user_id")
-      private Long userId;
 
       @OneToOne
       @JoinColumn(name = "user_id")

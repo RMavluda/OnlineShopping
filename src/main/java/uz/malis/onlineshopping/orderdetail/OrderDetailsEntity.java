@@ -1,4 +1,4 @@
-package uz.malis.onlineshopping.orderdetails;
+package uz.malis.onlineshopping.orderdetail;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,11 +8,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import java.time.LocalDate;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.relational.core.mapping.Table;
-import uz.malis.onlineshopping.orders.OrdersEntity;
+import uz.malis.onlineshopping.order.OrdersEntity;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name="order_details")
 public class OrderDetailsEntity {
