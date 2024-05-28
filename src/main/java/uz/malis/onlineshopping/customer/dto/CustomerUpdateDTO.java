@@ -1,7 +1,9 @@
 package uz.malis.onlineshopping.customer.dto;
 
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
+@Data
 public class CustomerUpdateDTO {
 
   private String name;

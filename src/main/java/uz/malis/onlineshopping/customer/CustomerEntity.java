@@ -7,35 +7,34 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 import uz.malis.onlineshopping.user.UserEntity;
 
-@Getter
-@Setter
+@Data
 @Entity
-@ToString
-@RequiredArgsConstructor
 @Table(name="customers")
 public class CustomerEntity {
 
-      @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
-      private Long id;
+  private static final String GENERATOR_NAME = "customers_gen";
+  private static final String SEQUENCE_NAME = "customers_seq";
 
-      @Column(name = "name")
-      private String name;
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = GENERATOR_NAME)
+  @SequenceGenerator(name = GENERATOR_NAME, sequenceName = SEQUENCE_NAME, allocationSize = 1)
+  private Long id;
 
-      @Column(name = "address")
-      private String address;
+  @Column(name = "name", nullable = false)
+  private String name;
 
-      @Column(name = "contact")
-      private String contact;
+  @Column(name = "address", nullable = false)
+  private String address;
 
-      @OneToOne
-      @JoinColumn(name = "user_id")
-      private UserEntity userEntity;
+  @Column(name = "contact", nullable = false)
+  private String contact;
+
+  @OneToOne
+  @JoinColumn(name = "user_id")
+  private UserEntity userEntity;
 }

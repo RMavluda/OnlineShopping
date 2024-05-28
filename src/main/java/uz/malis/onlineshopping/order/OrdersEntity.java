@@ -23,7 +23,8 @@ public class OrdersEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "customer_id")
+  @ManyToOne
+  @JoinColumn(name = "id")
   private CustomerEntity customerId;
 
   @Column(name = "order_date")

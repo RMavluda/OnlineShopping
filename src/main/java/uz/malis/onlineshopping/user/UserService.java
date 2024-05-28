@@ -2,36 +2,18 @@ package uz.malis.onlineshopping.user;
 
 import java.util.List;
 import java.util.Optional;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import uz.malis.onlineshopping.user.dto.UserRequestDto;
 import uz.malis.onlineshopping.user.dto.UserUpdateDto;
 
-@Service
-@RequiredArgsConstructor
-public class UserService {
-  private final UserRepository repository;
-  private final UserMapper mapper;
+public interface UserService {
 
-  public List<UserEntity> findAll(){
-    return repository.findAll();
-  }
+  List<UserEntity> findAll();
 
-  public void save(UserRequestDto requestDto){
-      UserEntity userEntity = mapper.toEntity(requestDto);
-      repository.save(userEntity);
-  }
-  public Optional<UserEntity> findById(Long id){
-    return repository.findById(id);
-  }
+  void save(UserRequestDto requestDto);
 
-  public void delete(Long id){
-    repository.deleteById(id);
-  }
+  Optional<UserEntity> findById(Long id);
 
-  public void update(Long id, UserUpdateDto updateDto){
-    var entity = repository.findById(id).get();
-    mapper.update(entity, updateDto);
-    repository.save(entity);
-  }
+  void delete(Long id);
+
+  void update(Long id, UserUpdateDto updateDto);
 }
