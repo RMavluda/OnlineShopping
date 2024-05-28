@@ -5,13 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uz.malis.onlineshopping.customer.CustomerEntity;
 
 @Getter
 @Setter
@@ -20,8 +18,12 @@ import uz.malis.onlineshopping.customer.CustomerEntity;
 @Table(name="users")
 public class UserEntity {
 
+  private static final String GENERATOR_NAME = "users_gen";
+  private static final String SEQUENCE_NAME = "users_seq";
+
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = GENERATOR_NAME)
+  @SequenceGenerator(name = GENERATOR_NAME, sequenceName = SEQUENCE_NAME, allocationSize = 1)
   private Long id;
 
   @Column(name = "name")
@@ -33,7 +35,4 @@ public class UserEntity {
   @Column(name = "password")
   private String password;
 
-  @OneToOne
-  @JoinColumn(name = "customers_id")
-  private CustomerEntity customersEntity;
 }
