@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
   @Override
   public void save(CustomerRequestDTO requestDTO) {
     var entity = mapper.toEntity(requestDTO);
-    entity.setUserEntity(userMapper.toEntity(new UserRequestDto(
+    entity.setUserId(userMapper.toEntity(new UserRequestDto(
         requestDTO.getName(),
         requestDTO.getUsername(),
         requestDTO.getPassword())));

@@ -36,5 +36,5 @@ public class CustomerEntity {
 
   @OneToOne
   @JoinColumn(name = "user_id")
-  private UserEntity userEntity;
+  private UserEntity userId;
 }
